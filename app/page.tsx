@@ -1,9 +1,12 @@
-import Image from "next/image";
-import { Inter } from "@next/font/google";
+import Button from "./components/ui/Button";
 import styles from "./page.module.css";
 
-const inter = Inter({ subsets: ["latin"] });
-
 export default function Home() {
-  return <h1 className="text-3xl font-bold underline">Hello world!</h1>;
+  return (
+    <div className="w-screen h-screen flex items-center justify-center">
+      <Button variant="ghost" intent="primary">
+        Button
+      </Button>
+    </div>
+  );
 }
