@@ -2,7 +2,7 @@ import React from "react";
 import { cva, VariantProps } from "class-variance-authority";
 
 const buttonStyles = cva(
-  `flex items-center justify-center font-semibold text-center px-4 py-2 rounded-md `,
+  `flex items-center justify-center font-semibold px-4 py-2 rounded-md `,
   {
     variants: {
       intent: {
