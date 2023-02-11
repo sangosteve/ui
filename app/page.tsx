@@ -4,9 +4,10 @@ import styles from "./page.module.css";
 export default function Home() {
   return (
     <div className="w-screen h-screen flex items-center justify-center">
-      <Button variant="primary">
+      <Button modifier="outline" variant="primary">
         Button
       </Button>
+      <p className="text-blue-500">text</p>
     </div>
   );
 }
