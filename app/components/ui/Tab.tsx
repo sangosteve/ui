@@ -1,5 +1,5 @@
 "use client"
-import React from "react";
+import React,{Fragment} from "react";
 import { Tab as HeadlessTab } from '@headlessui/react'
 import clsx from "clsx";
 
@@ -34,11 +34,17 @@ interface TabProps{
 export function Tab({children}:TabProps){
     
    return (    
-    <HeadlessTab  className={"px-2 py-1 hover:bg-blue-50"}>
-            {children}
+    <HeadlessTab as={Fragment}  >
+             {({ selected }) => (
+                <button className={clsx(selected?"text-blue-500":"","px-2 py-1 hover:bg-blue-50")}>
+                    {children}
+                </button>
+             )}
         </HeadlessTab>
-    )
+        )
 }
+
+//className={"px-2 py-1 hover:bg-blue-50"}
 
 interface TabPanelsProps{
     children?:React.ReactNode;
