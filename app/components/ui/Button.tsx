@@ -2,7 +2,7 @@ import React from "react";
 import { cva, VariantProps } from "class-variance-authority";
 
 const buttonStyles = cva(
-  `flex items-center justify-center font-semibold px-4 py-2 rounded-md `,
+  "flex items-center justify-center font-semibold px-4 py-2 rounded-md ",
   {
     variants: {
       intent: {
@@ -12,7 +12,7 @@ const buttonStyles = cva(
         error: "bg-red-500 text-white hover:bg-red-500 text-body",
       },
       variant: {
-        outline: "bg-transparent",
+        outline: 'bg-transparent',
         link: "bg-transparent border-none",
         ghost: "border-none",
       },
@@ -29,7 +29,7 @@ const buttonStyles = cva(
         intent: "primary",
         variant: "outline",
         className:
-          "bg-transparent border border-blue-500 text-blue-500  hover:bg-transparent hover:border-blue-700 hover:text-blue-700",
+          "text-blue-500 bg-transparent border border-blue-500 hover:bg-transparent hover:border-blue-700 hover:text-blue-700",
       },
       {
         intent: "warning",

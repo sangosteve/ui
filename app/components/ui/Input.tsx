@@ -30,11 +30,13 @@ export interface InputProps extends VariantProps<typeof inputStyles> {
   // onBlur?: (event: SyntheticInputEvent<HTMLInputElement>) => void,
   // onFocus?: (event: SyntheticInputEvent<HTMLInputElement>) => void,
   intent?: "info" | "warning" | "success" | "error";
+  required?:boolean;
   fullWidth?: boolean;
 }
 
 export const Input = ({
   intent,
+  required,
   fullWidth,
   value,
   placeholder,
@@ -44,13 +46,12 @@ export const Input = ({
 }: InputProps) => {
   return (
     <div className={inputStyles({ intent })} {...props}>
-      {label && <label className="text-body">{label}</label>}
+      {label && <label className="text-body">{label} {required&& <span className=" text-title2 text-red-500">*</span>}</label>}
       <input
-        className={`mt-1 px-4 py-1 border border-neutral-200 rounded-sm text-body text-neutral-800 focus:outline-none focus:ring-1 focus:ring-offset-2 focus:ring-${
-          intent === "info" ? "blue" : "green"
-        }-500`}
+        className={`mt-1 px-4 py-1 border border-neutral-200 rounded-md text-body text-neutral-800 w-72`}
         placeholder={placeholder}
         value={value}
+        required={required}
       />
       {helperText && <small className="text-neutral-200">{helperText}</small>}
     </div>
