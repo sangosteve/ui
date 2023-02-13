@@ -1,6 +1,6 @@
 import React from "react";
 import { cva, VariantProps } from "class-variance-authority";
-
+import { twMerge } from "tailwind-merge";
 const buttonStyles = cva(
   "flex items-center justify-center font-semibold px-4 py-2 rounded-md ",
   {
@@ -12,7 +12,7 @@ const buttonStyles = cva(
         error: "bg-red-500 text-white hover:bg-red-500 text-body",
       },
       variant: {
-        outline: 'bg-transparent',
+        outline: "bg-transparent",
         link: "bg-transparent border-none",
         ghost: "border-none",
       },
@@ -65,6 +65,9 @@ export interface ButtonProps extends VariantProps<typeof buttonStyles> {
   fullWidth?: boolean;
   children?: React.ReactNode;
 }
+
+export const button = (variants: ButtonProps) =>
+  twMerge(buttonStyles(variants));
 
 const Button = ({
   intent,
