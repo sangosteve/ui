@@ -1,8 +1,8 @@
 import React from "react";
 import { cva, VariantProps } from "class-variance-authority";
 
-const alertStyles = cva(
-  "flex items-start p-4 max-w-sm border border-neutral-400 rounded-md -text-body",
+const badgeStyles = cva(
+  "flex items-center justify-center -text-body font-semibold px-3 py-0.5 bg-red-500 rounded-xl",
   {
     variants: {
       intent: {
@@ -65,55 +65,39 @@ const alertStyles = cva(
       {
         intent: "error",
         variant: "outline",
-        class: "bg-transparent border-red-500",
+        class: "bg-transparent border border-red-500",
       },
       {
         intent: "success",
         variant: "outline",
-        class: "bg-transparent border-green-500",
+        class: "bg-transparent border border border-green-500",
       },
       {
         intent: "warning",
         variant: "outline",
-        class: "bg-transparent border-orange-500",
+        class: "bg-transparent border border-orange-500",
       },
       {
         intent: "info",
         variant: "outline",
-        class: "bg-transparent border-blue-500",
+        class: "bg-transparent border border-blue-500",
       },
     ],
   }
 );
 
-export const Alert = ({
-  children,
-  icon,
-  title,
-  intent,
-  variant,
-}: AlertProps) => {
+export interface BadgeProps extends VariantProps<typeof badgeStyles> {
+  intent?: "info" | "warning" | "success" | "error";
+  variant?: "light" | "filled" | "outline";
+  children?: React.ReactNode;
+}
+
+const Badge = ({ intent, variant, children }: BadgeProps) => {
   return (
-    <div className={alertStyles({ intent, variant })}>
-      <div className="flex items-start">{icon}</div>
-      <div className="flex flex-col items-start justify-start ml-2">
-        <div
-          className={`flex items-start justify-start text-body font-semibold`}
-        >
-          {title}
-        </div>
-        <div className="mt-1">{children}</div>
-      </div>
+    <div className={badgeStyles({ intent, variant })}>
+      <span>{children}</span>
     </div>
   );
 };
 
-export interface AlertProps extends VariantProps<typeof alertStyles> {
-  intent?: "info" | "warning" | "success" | "error";
-  variant?: "light" | "filled" | "outline";
-  children?: React.ReactNode;
-  icon?: React.ReactNode;
-  title?: string;
-}
-
-export default Alert;
+export default Badge;
