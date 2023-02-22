@@ -1,86 +1,133 @@
-import React from "react";
+import React,{ButtonHTMLAttributes} from "react";
 import { cva, VariantProps } from "class-variance-authority";
 import { twMerge } from "tailwind-merge";
-const buttonStyles = cva(
-  "flex items-center justify-center font-semibold px-4 py-2 rounded-md ",
-  {
-    variants: {
-      intent: {
-        primary: "bg-blue-500 text-white hover:bg-blue-600 text-body",
-        warning: "bg-orange-500 text-white hover:bg-orange-600 text-body",
-        success: "bg-green-500 text-white hover:bg-green-600 text-body",
-        error: "bg-red-500 text-white hover:bg-red-500 text-body",
-      },
-      variant: {
-        outline: "bg-transparent",
-        link: "bg-transparent border-none",
-        ghost: "border-none",
-      },
-      fullWidth: {
-        true: "w-full",
-      },
-    },
-    defaultVariants: {
-      intent: "primary",
-      fullWidth: false,
-    },
-    compoundVariants: [
-      {
-        intent: "primary",
-        variant: "outline",
-        className:
-          "text-blue-500 bg-transparent border border-blue-500 hover:bg-transparent hover:border-blue-700 hover:text-blue-700",
-      },
-      {
-        intent: "warning",
-        variant: "outline",
-        className:
-          "bg-transparent border border-orange-500 text-orange-500  hover:bg-transparent hover:border-orange-700 hover:text-orange-700",
-      },
-      {
-        intent: "success",
-        variant: "outline",
-        className:
-          "bg-transparent border border-green-500 text-green-500  hover:bg-transparent hover:border-green-700 hover:text-green-700",
-      },
-      {
-        intent: "error",
-        variant: "outline",
-        className:
-          "bg-transparent border border-red-500 text-red-500  hover:bg-transparent hover:border-red-700 hover:text-red-700",
-      },
-      //   GHOST
-      {
-        intent: "primary",
-        variant: "ghost",
-        className: "bg-blue-100 text-blue-500 hover:text-blue-700",
-      },
-    ],
-  }
-);
 
-export interface ButtonProps extends VariantProps<typeof buttonStyles> {
-  intent?: "primary" | "warning" | "success" | "error";
-  variant?: "outline" | "link" | "ghost";
-  fullWidth?: boolean;
-  children?: React.ReactNode;
+
+const buttonStyles = cva("flex items-center rounded-md px-4 py-2",{
+  variants:{
+    variant:{
+      info:"bg-blue-500 text-white",
+      warning:"bg-orange-500 text-white",
+      success:"bg-green-500 text-white",
+      error:"bg-red-500 text-white"
+    },
+    intent:{
+      filled:"",
+      outline:"bg-transparent border border-current",
+      ghost:"",
+      link:"bg-transparent border-none shadow-none"
+    },
+
+    fullWidth:{
+      true:"w-full"
+    }
+    
+  },
+  compoundVariants:[
+    //INFO 
+  {
+
+    variant:"info",
+    intent:"filled",
+    className:"bg-blue-500 text-white border-none"
+  },
+  {
+    variant:"info",
+    intent:"outline",
+    className:"bg-transparent text-blue-500 border border-current"
+  },
+  {
+    variant:"info",
+    intent:"ghost",
+    className:"bg-blue-50 text-blue-500 border-none"
+  },
+  {
+    variant:"info",
+    intent:"link",
+    className:"bg-transparent text-blue-500"
+  },
+  //WARNING
+  {
+
+    variant:"warning",
+    intent:"filled",
+    className:"bg-orange-500 text-white border-none"
+  },
+  {
+    variant:"warning",
+    intent:"outline",
+    className:"bg-transparent text-orange-500 border border-current"
+  },
+  {
+    variant:"warning",
+    intent:"ghost",
+    className:"bg-orange-50 text-orange-500 border-none"
+  },
+  {
+    variant:"warning",
+    intent:"link",
+    className:"bg-transparent text-orange-500"
+  },
+
+  //SUCCESS
+  {
+
+    variant:"success",
+    intent:"filled",
+    className:"bg-green-500 text-white border-none"
+  },
+  {
+    variant:"success",
+    intent:"outline",
+    className:"bg-transparent text-green-500 border border-current"
+  },
+  {
+    variant:"success",
+    intent:"ghost",
+    className:"bg-green-50 text-green-500 border-none"
+  },
+  {
+    variant:"success",
+    intent:"link",
+    className:"bg-transparent text-green-500"
+  },
+
+  //ERROR
+  {
+
+    variant:"error",
+    intent:"filled",
+    className:"bg-red-500 text-white border-none"
+  },
+  {
+    variant:"error",
+    intent:"outline",
+    className:"bg-transparent text-red-500 border border-current"
+  },
+  {
+    variant:"error",
+    intent:"ghost",
+    className:"bg-red-50 text-red-500 border-none"
+  },
+  {
+    variant:"error",
+    intent:"link",
+    className:"bg-transparent text-red-500"
+  },
+
+
+],
+  defaultVariants:{
+    variant:"info",
+    intent:"filled"
+  }
+});
+
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>,VariantProps<typeof buttonStyles>{
+  children:React.ReactNode;
 }
 
-export const button = (variants: ButtonProps) =>
-  twMerge(buttonStyles(variants));
-
-const Button = ({
-  intent,
-  variant,
-  fullWidth,
-  children,
-  ...props
-}: ButtonProps) => {
-  return (
-    <button className={buttonStyles({ intent, variant, fullWidth })} {...props}>
-      {children}
-    </button>
-  );
-};
-
+export const Button = ({children, variant,intent,fullWidth}:ButtonProps)=>{
+  return <button className={twMerge(buttonStyles({variant,intent,fullWidth}))}>{children}</button>
+}
 export default Button;

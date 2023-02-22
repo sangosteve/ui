@@ -1,6 +1,6 @@
 import React from "react";
 import { cva, VariantProps } from "class-variance-authority";
-
+import { twMerge } from "tailwind-merge";
 const badgeStyles = cva(
   "flex items-center justify-center -text-body font-semibold px-3 py-0.5 bg-red-500 rounded-xl",
   {
@@ -14,7 +14,7 @@ const badgeStyles = cva(
       variant: {
         light: "",
         filled: "",
-        outline: "",
+        outline: "bg-transparent",
       },
     },
     compoundVariants: [
@@ -22,66 +22,70 @@ const badgeStyles = cva(
       {
         intent: "info",
         variant: "light",
-        class: "bg-blue-50 border-0 text-neutral-900",
+        className: "bg-blue-50 border-0 text-neutral-900",
+      },
+      {
+        intent: "info",
+        variant: "outline",
+        className: "border border-blue-500",
+      },
+      {
+        intent: "info",
+        variant: "filled",
+        className: "bg-blue-500 border-0 text-white",
       },
       {
         intent: "warning",
         variant: "light",
-        class: "bg-orange-50 border-0 text-neutral-900",
+        className: "bg-orange-50 border-0 text-neutral-900",
+      },
+      {
+        intent: "warning",
+        variant: "outline",
+        className: "border border-orange-500",
+      },
+      {
+        intent: "warning",
+        variant: "filled",
+        className: "bg-orange-500 border-0 text-white",
       },
       {
         intent: "success",
         variant: "light",
-        class: "bg-green-50 border-0 text-neutral-900",
+        className: "bg-green-50 border-0 text-neutral-900",
       },
+      {
+        intent: "success",
+        variant: "filled",
+        className: "bg-green-500 border-0 text-white",
+      },
+      {
+        intent: "success",
+        variant: "outline",
+        className: "border border border-green-500",
+      },
+    
       {
         intent: "error",
         variant: "light",
-        class: "bg-red-50 border-0 text-neutral-900",
+        className: "bg-red-50 border-0 text-neutral-900",
       },
       //Filled
 
       {
         intent: "error",
         variant: "filled",
-        class: "bg-red-500 border-0 text-white",
-      },
-      {
-        intent: "success",
-        variant: "filled",
-        class: "bg-green-500 border-0 text-white",
-      },
-      {
-        intent: "warning",
-        variant: "filled",
-        class: "bg-orange-500 border-0 text-white",
-      },
-      {
-        intent: "info",
-        variant: "filled",
-        class: "bg-blue-500 border-0 text-white",
+        className: "bg-red-500 border-0 text-white",
       },
       //Outline
       {
         intent: "error",
         variant: "outline",
-        class: "bg-transparent border border-red-500",
+        className: "border border-red-500",
       },
-      {
-        intent: "success",
-        variant: "outline",
-        class: "bg-transparent border border border-green-500",
-      },
-      {
-        intent: "warning",
-        variant: "outline",
-        class: "bg-transparent border border-orange-500",
-      },
-      {
-        intent: "info",
-        variant: "outline",
-        class: "bg-transparent border border-blue-500",
-      },
+    
+    
+     
     ],
   }
 );
@@ -94,8 +98,8 @@ export interface BadgeProps extends VariantProps<typeof badgeStyles> {
 
 const Badge = ({ intent, variant, children }: BadgeProps) => {
   return (
-    <div className={badgeStyles({ intent, variant })}>
-      <span>{children}</span>
+    <div className={twMerge(badgeStyles({ intent, variant }))}>
+      {children}
     </div>
   );
 };

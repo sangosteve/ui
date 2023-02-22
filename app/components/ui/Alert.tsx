@@ -2,7 +2,7 @@ import React from "react";
 import { cva, VariantProps } from "class-variance-authority";
 
 const alertStyles = cva(
-  "flex items-start p-4 max-w-sm border border-neutral-400 rounded-md -text-body",
+  "flex items-start p-4 max-w-sm border border-neutral-400 rounded-md text-body",
   {
     variants: {
       intent: {
