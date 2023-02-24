@@ -1,7 +1,11 @@
 {
   "name": "ui",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
+  "repository": "https://github.com/sangosteve/ui.git",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
