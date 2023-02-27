@@ -124,10 +124,13 @@ const buttonStyles = cva("flex items-center rounded-md px-4 py-2",{
 });
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>,VariantProps<typeof buttonStyles>{
-  children:React.ReactNode;
+  children?:React.ReactNode;
+  variant?:"info"|"error"|"success"|"warning",
+  intent?:"filled"|"link"|"ghost"|"outine",
+  fullWidth?:boolean,
 }
 
 export const Button = ({children, variant,intent,fullWidth}:ButtonProps)=>{
-  return <button className={twMerge(buttonStyles({variant,intent,fullWidth}))}>{children}</button>
+  return <button className={twMerge(buttonStyles({variant,intent,fullWidth}))} children={children}>{children}</button>
 }
 export default Button;

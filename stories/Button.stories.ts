@@ -4,7 +4,8 @@ import Button from '../app/components/ui/Button';
 
 const meta: Meta<typeof Button> = {
   title: "Button",
-  component: Button
+  component: Button,
+
 
 }
 
