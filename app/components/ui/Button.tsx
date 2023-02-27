@@ -6,7 +6,7 @@ import { twMerge } from "tailwind-merge";
 const buttonStyles = cva("flex items-center rounded-md px-4 py-2",{
   variants:{
     variant:{
-      info:"bg-blue-500 text-white",
+      info:"bg-indigo-500 text-white",
       warning:"bg-orange-500 text-white",
       success:"bg-green-500 text-white",
       error:"bg-red-500 text-white"
@@ -29,22 +29,22 @@ const buttonStyles = cva("flex items-center rounded-md px-4 py-2",{
 
     variant:"info",
     intent:"filled",
-    className:"bg-blue-500 text-white border-none"
+    className:"bg-indigo-500 text-white border-none"
   },
   {
     variant:"info",
     intent:"outline",
-    className:"bg-transparent text-blue-500 border border-current"
+    className:"bg-transparent text-indigo-500 border border-current"
   },
   {
     variant:"info",
     intent:"ghost",
-    className:"bg-blue-50 text-blue-500 border-none"
+    className:"bg-indigo-50 text-indigo-500 border-none"
   },
   {
     variant:"info",
     intent:"link",
-    className:"bg-transparent text-blue-500"
+    className:"bg-transparent text-indigo-500"
   },
   //WARNING
   {

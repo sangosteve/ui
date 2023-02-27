@@ -11,10 +11,10 @@ export default function Home() {
      </Button> */}
     
    
-      <Button intent={"outline"} variant={"error"}>
+      <Button intent={"filled"} variant={"info"}>
       Click Me
      </Button> 
-     <Alert intent="error" variant="light">
+     <Alert intent="error" variant="filled">
       Messed up did you?
      </Alert>
     </div>
