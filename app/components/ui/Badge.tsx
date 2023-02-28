@@ -2,11 +2,11 @@ import React from "react";
 import { cva, VariantProps } from "class-variance-authority";
 import { twMerge } from "tailwind-merge";
 const badgeStyles = cva(
-  "flex items-center justify-center -text-body font-semibold px-3 py-0.5 bg-red-500 rounded-xl",
+  "inline-flex text-caption text-center font-bold px-4 py-0.5 rounded-full",
   {
     variants: {
       intent: {
-        info: "text-blue-500",
+        info: "text-indigo-500",
         warning: "text-orange-500",
         success: "text-green-500",
         error: "text-red-500",
@@ -22,17 +22,17 @@ const badgeStyles = cva(
       {
         intent: "info",
         variant: "light",
-        className: "bg-blue-50 border-0 text-neutral-900",
+        className: "bg-indigo-100 border-0 text-indigo-500",
       },
       {
         intent: "info",
         variant: "outline",
-        className: "border border-blue-500",
+        className: "border border-indigo-500",
       },
       {
         intent: "info",
         variant: "filled",
-        className: "bg-blue-500 border-0 text-white",
+        className: "bg-indigo-500 border-0 text-white",
       },
       {
         intent: "warning",
@@ -64,7 +64,7 @@ const badgeStyles = cva(
         variant: "outline",
         className: "border border border-green-500",
       },
-    
+
       {
         intent: "error",
         variant: "light",
@@ -83,9 +83,6 @@ const badgeStyles = cva(
         variant: "outline",
         className: "border border-red-500",
       },
-    
-    
-     
     ],
   }
 );
@@ -98,9 +95,9 @@ export interface BadgeProps extends VariantProps<typeof badgeStyles> {
 
 const Badge = ({ intent, variant, children }: BadgeProps) => {
   return (
-    <div className={twMerge(badgeStyles({ intent, variant }))}>
+    <span className={twMerge(badgeStyles({ intent, variant }))}>
       {children}
-    </div>
+    </span>
   );
 };
 

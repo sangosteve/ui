@@ -9,7 +9,6 @@ module.exports = {
     colors: {
       /* Color styles */
       "indigo-000": "#EDF2FF",
-      "indigo-000": "#EDF2FF",
       "indigo-100": "#DBE4FF",
       "indigo-200": "#BAC8FF",
       "indigo-300": "#91A7FF",
@@ -95,6 +94,7 @@ module.exports = {
       "body2-bold": "14px",
       "caption-bold": "12px",
     },
+
     extend: {},
   },
   plugins: [],
