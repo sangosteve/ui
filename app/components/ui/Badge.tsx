@@ -37,7 +37,7 @@ const badgeStyles = cva(
       {
         intent: "warning",
         variant: "light",
-        className: "bg-orange-50 border-0 text-neutral-900",
+        className: "bg-orange-100 border-0 text-orange-500",
       },
       {
         intent: "warning",
@@ -52,7 +52,7 @@ const badgeStyles = cva(
       {
         intent: "success",
         variant: "light",
-        className: "bg-green-50 border-0 text-neutral-900",
+        className: "bg-green-100 border-0 text-green-500",
       },
       {
         intent: "success",
@@ -68,7 +68,7 @@ const badgeStyles = cva(
       {
         intent: "error",
         variant: "light",
-        className: "bg-red-50 border-0 text-neutral-900",
+        className: "bg-red-100 border-0 text-red-500",
       },
       //Filled
 
