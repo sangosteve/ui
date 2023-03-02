@@ -1,20 +1,20 @@
-"use client"
-import React,{Fragment} from 'react'
+"use client";
+import React, { Fragment } from "react";
 import { Menu as HeadlessMenu, Transition } from "@headlessui/react";
 import clsx from "clsx";
 
 export const MenuButton = HeadlessMenu.Button;
 
-interface MenuProps{
-  children?:React.ReactNode;
+interface MenuProps {
+  children?: React.ReactNode;
 }
 
-export function Menu({children}:MenuProps){
-  return(
-    <HeadlessMenu as="div" className="relative" >
-        {children}
+export function Menu({ children }: MenuProps) {
+  return (
+    <HeadlessMenu as="div" className="relative">
+      {children}
     </HeadlessMenu>
-  )
+  );
 }
 
 export interface MenuItemProps {
@@ -61,9 +61,6 @@ export function MenuItems({ children }: MenuItemsProps) {
     </Transition>
   );
 }
-
-
-
 
 /**const MenuC = () => {
   return (

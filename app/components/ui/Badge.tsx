@@ -91,11 +91,21 @@ export interface BadgeProps extends VariantProps<typeof badgeStyles> {
   intent?: "info" | "warning" | "success" | "error";
   variant?: "light" | "filled" | "outline";
   children?: React.ReactNode;
+  className?: string;
 }
 
-const Badge = ({ intent, variant, children }: BadgeProps) => {
+const Badge = ({
+  intent,
+  variant,
+  children,
+  className,
+  ...props
+}: BadgeProps) => {
   return (
-    <span className={twMerge(badgeStyles({ intent, variant }))}>
+    <span
+      className={twMerge(badgeStyles({ intent, variant, className }))}
+      {...props}
+    >
       {children}
     </span>
   );

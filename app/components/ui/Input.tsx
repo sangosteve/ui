@@ -1,37 +1,30 @@
 import React from "react";
 import { cva, VariantProps } from "class-variance-authority";
 
-const inputStyles = cva(
-  `flex flex-col items-start `,
-
-  {
-    variants: {
-      intent: {
-        info: "",
-        warning: "",
-        success: "",
-        error: "",
-      },
+const inputStyles = cva(`flex flex-col items-start `, {
+  variants: {
+    intent: {
+      info: "",
+      warning: "",
+      success: "",
+      error: "",
     },
-    defaultVariants: {
-      intent: "info",
-    },
-  }
-);
+  },
+  defaultVariants: {
+    intent: "info",
+  },
+});
 
 export interface InputProps extends VariantProps<typeof inputStyles> {
   placeholder?: string;
   label?: string;
   helperText?: string;
-
   name?: string;
   value?: string;
-  // onChange?: (event: React.InputEvent<HTMLInputElement>) => void,
-  // onBlur?: (event: SyntheticInputEvent<HTMLInputElement>) => void,
-  // onFocus?: (event: SyntheticInputEvent<HTMLInputElement>) => void,
   intent?: "info" | "warning" | "success" | "error";
   required?: boolean;
   fullWidth?: boolean;
+  className?: string;
 }
 
 export const Input = ({
@@ -42,10 +35,11 @@ export const Input = ({
   placeholder,
   label,
   helperText,
+  className,
   ...props
 }: InputProps) => {
   return (
-    <div className={inputStyles({ intent })} {...props}>
+    <div className={inputStyles({ intent, className })} {...props}>
       {label && (
         <label className="text-body">
           {label}{" "}
