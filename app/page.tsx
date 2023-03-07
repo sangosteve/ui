@@ -1,13 +1,22 @@
+"use client";
 import Alert from "./components/ui/Alert";
 import Badge from "./components/ui/Badge";
 import styles from "./page.module.css";
 import { Info } from "lucide-react";
 import { Button } from "./components/ui/Button";
-import Select from "./components/ui/SelectTemplate";
+import { Select } from "./components/ui/Select";
 export default function Home() {
   return (
     <div className="w-screen h-screen flex flex-col items-center justify-center">
-      <Select />
+      <Select
+        label="name"
+        id="id"
+        data={[
+          { id: "1", name: "steve" },
+          { id: "2", name: "harold" },
+        ]}
+        onChange={() => console.log("test")}
+      />
     </div>
   );
 }
