@@ -9,9 +9,9 @@ interface SelectProps {
   label: string;
   id: string | number;
   value?: string | number;
-  onChange: React.Dispatch<React.SetStateAction<{ [key: string]: string }>>;
+  //onChange: React.Dispatch<React.SetStateAction<{ [key: string]: string }>>;
   // onSelectChange: (selection: any) => void;
-  //onChange: (selection: any) => void;
+  onChange: (selection: any) => void;
   data: {
     [key: string]: string;
   }[];
@@ -97,3 +97,13 @@ export const Select = ({ data, label, id, onChange }: SelectProps) => {
     </Combobox>
   );
 };
+
+// USAGE EXAMPLE
+// <Select
+//   label="name"
+//   id="id"
+//   data={[
+//     { id: "1", name: "steve" },
+//     { id: "2", name: "harold" },
+//   ]}
+// />;
