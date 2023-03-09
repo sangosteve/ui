@@ -11,11 +11,11 @@ export default function Home() {
   return (
     <div className="w-screen h-screen ">
       <Grid>
-        <Grid.Item cols={3}>
-          <div className="bg-indigo-500">cols = 3</div>
+        <Grid.Item cols={4}>
+          <div className="bg-indigo-500 w-full">cols = 3</div>
         </Grid.Item>
         <Grid.Item cols={7}>
-          <div className="bg-green-500">cols = 8</div>
+          <div className="bg-green-500 w-full">cols = 8</div>
         </Grid.Item>
       </Grid>
     </div>
