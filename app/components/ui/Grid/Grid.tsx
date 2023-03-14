@@ -6,22 +6,42 @@ type Cols = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
 
 interface GridProps {
   children: React.ReactNode;
-  gap?: "xs" | "sm" | "md" | "lg";
 }
 
-interface ItemProps {
+interface ItemProps extends GridProps {
   children: React.ReactNode;
-  cols?: Cols;
+  cols: Cols;
+  gutter?: number;
 }
 
-const Item = ({ children, cols }: ItemProps) => {
+const Item = ({ children, cols, gutter }: ItemProps) => {
   // return <div className={`flex basis-1/12`}>{children}</div>;
-  return <div className={`flex basis-${cols}/12`}>{children}</div>;
+  return (
+    <div
+      style={{
+        display: "flex",
+        flexBasis: `${(cols / 12) * 100}%`,
+        padding: `${gutter}px`,
+      }}
+    >
+      {children}
+    </div>
+  );
 };
 
 const Grid = ({ children }: GridProps) => {
   return (
-    <div className={`w-screen h-screen flex flex-wrap gap-1`}>{children}</div>
+    // <div className={`w-screen h-screen flex flex-wrap gap-1`}>{children}</div>
+    <div
+      style={{
+        width: "100vw",
+        display: "flex",
+        flexWrap: "wrap",
+        justifyContent: "space-between",
+      }}
+    >
+      {children}
+    </div>
   );
 };
 
