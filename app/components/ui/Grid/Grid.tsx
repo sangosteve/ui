@@ -31,13 +31,11 @@ const Item = ({ children, cols, gutter }: ItemProps) => {
 
 const Grid = ({ children }: GridProps) => {
   return (
-    // <div className={`w-screen h-screen flex flex-wrap gap-1`}>{children}</div>
     <div
       style={{
         width: "100vw",
         display: "flex",
         flexWrap: "wrap",
-        justifyContent: "space-between",
       }}
     >
       {children}
