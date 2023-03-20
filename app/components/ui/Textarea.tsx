@@ -25,6 +25,7 @@ export interface TextAreaProps extends VariantProps<typeof textareaStyles> {
   required?: boolean;
   fullWidth?: boolean;
   className?: string;
+  onChange?: (val: any) => void;
 }
 
 export const Textarea = ({
@@ -36,6 +37,7 @@ export const Textarea = ({
   label,
   helperText,
   className,
+  onChange,
   ...props
 }: TextAreaProps) => {
   return (
@@ -51,6 +53,7 @@ export const Textarea = ({
         placeholder={placeholder}
         value={value}
         required={required}
+        onChange={onChange}
       />
       {helperText && <small className="text-neutral-200">{helperText}</small>}
     </div>
