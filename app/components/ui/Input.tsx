@@ -20,7 +20,8 @@ export interface InputProps extends VariantProps<typeof inputStyles> {
   label?: string;
   helperText?: string;
   name?: string;
-  value?: string;
+  type?: string;
+  value?: string | number;
   intent?: "info" | "warning" | "success" | "error";
   required?: boolean;
   fullWidth?: boolean;
@@ -54,6 +55,7 @@ export const Input = ({
         value={value}
         required={required}
         onChange={onChange}
+        {...props}
       />
       {helperText && <small className="text-neutral-200">{helperText}</small>}
     </div>
