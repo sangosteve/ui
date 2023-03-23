@@ -44,20 +44,20 @@ export const Input = ({
   return (
     <div className={inputStyles({ intent, className })} {...props}>
       {label && (
-        <label className="text-body">
+        <label className="text-gray-700 text-sm font-medium">
           {label}{" "}
-          {required && <span className=" text-title2 text-red-500">*</span>}
+          {required && <span className=" text-sm text-error-600">*</span>}
         </label>
       )}
       <input
-        className={`mt-1 px-4 py-1 border border-gray-500 hover:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 rounded-md text-body text-neutral-800 w-72`}
+        className={`mt-1 px-4 py-1 border border-gray-300 hover:border-indigo-600 focus:outline-none focus:ring-1 focus:ring-indigo-600 rounded-md text-sm text-gray-900 font-regular  w-72`}
         placeholder={placeholder}
         value={value}
         required={required}
         onChange={onChange}
         {...props}
       />
-      {helperText && <small className="text-neutral-200">{helperText}</small>}
+      {helperText && <small className="text-gray-500 mt-1">{helperText}</small>}
     </div>
   );
 };
